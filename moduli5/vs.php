@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<?php
+
+$dogs = [
+    array("Husky", "Siberia", 15),
+    array("Bulldog", "England", 10),
+    array("Chihuahua", "Mexico", 20)
+];
+
+echo $dogs[0][0] . " Origin: " . $dogs[0][1] . " Life Span: " . $dogs[0][2] . "<hr>";
+echo $dogs[1][0] . " Origin: " . $dogs[1][1] . " Life Span: " . $dogs[1][2] . "<hr>";
+echo $dogs[2][0] . " Origin: " . $dogs[2][1] . " Life Span: " . $dogs[2][2] . "<hr>";
+
+$phones = [
+    ["Iphone 15", 20, 15],
+    ["Iphone 16", 30, 20],
+    ["iphone 17", 50, 50]
+];
+?>
+<table border="1">
+    <tr>
+        <th>Phone</th>
+        <th>In Stock</th>
+        <th>Sold</th>
+    </tr>
+    <tr>
+        <td><?php echo $phones[0][0]; ?></td>
+        <td><?php echo $phones[0][1]; ?></td>
+        <td><?php echo $phones[0][2]; ?></td>
+    </tr>
+    <tr>
+        <td><?php echo $phones[1][0]; ?></td>
+        <td><?php echo $phones[1][1]; ?></td>
+        <td><?php echo $phones[1][2]; ?></td>
+    </tr>
+    <tr>
+        <td><?php echo $phones[2][0]; ?></td>
+        <td><?php echo $phones[2][1]; ?></td>
+        <td><?php echo $phones[2][2]; ?></td>
+    </tr>
