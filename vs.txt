@@ -1,0 +1,2 @@
+This is a default file created by the PHP script.
+You can add more content here.

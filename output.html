@@ -449,31 +449,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php    
-                        $phones = [
-                            ["iPhone 15", 20, 15],
-                            ["iPhone 16", 30, 20],
-                            ["iPhone 17", 50, 50]
-                        ];
-
-                        for($row = 0; $row < 3; $row++){
-                            $stockLevel = $phones[$row][1];
-                            $badgeClass = '';
-                            if ($stockLevel > 25) {
-                                $badgeClass = 'in-stock';
-                            } elseif ($stockLevel > 10) {
-                                $badgeClass = 'low-stock';
-                            } else {
-                                $badgeClass = 'out-of-stock';
-                            }
-                            echo "<tr>";
-                            echo "<td><strong>" . $phones[$row][0] . "</strong></td>";
-                            echo "<td><span class='stock-badge $badgeClass'>" . $phones[$row][1] . "</span></td>";
-                            echo "<td>" . $phones[$row][2] . "</td>";
-                            echo "</tr>";
-                        }
-                        ?>
-                    </tbody>
+                        <tr><td><strong>iPhone 15</strong></td><td><span class='stock-badge low-stock'>20</span></td><td>15</td></tr><tr><td><strong>iPhone 16</strong></td><td><span class='stock-badge in-stock'>30</span></td><td>20</td></tr><tr><td><strong>iPhone 17</strong></td><td><span class='stock-badge in-stock'>50</span></td><td>50</td></tr>                    </tbody>
                 </table>
             </div>
         </section>
@@ -484,61 +460,11 @@
             
             <!-- Dog Cards Display -->
             <div class="dog-grid">
-                <?php    
-                $dogs = [
-                    array("Husky", "Siberia", 15),
-                    array("Bulldog", "England", 10), 
-                    array("Chihuahua", "Mexico", 20) 
-                ];
-
-                for($x = 0; $x < 3; $x++){
-                    echo '<div class="dog-card">';
-                    echo '  <div class="dog-card-header">';
-                    echo '    <div class="dog-icon">🐕</div>';
-                    echo '    <div class="dog-name">' . $dogs[$x][0] . '</div>';
-                    echo '  </div>';
-                    echo '  <div class="dog-details">';
-                    echo '    <div class="dog-detail">';
-                    echo '      <span class="dog-detail-label">Origin:</span>';
-                    echo '      <span class="dog-detail-value">' . $dogs[$x][1] . '</span>';
-                    echo '    </div>';
-                    echo '    <div class="dog-detail">';
-                    echo '      <span class="dog-detail-label">Life Span:</span>';
-                    echo '      <span class="dog-detail-value">' . $dogs[$x][2] . ' years</span>';
-                    echo '    </div>';
-                    echo '  </div>';
-                    echo '  <div class="dog-tags">';
-                    echo '    <span class="dog-tag">' . $dogs[$x][0] . '</span>';
-                    echo '    <span class="dog-tag">' . $dogs[$x][1] . '</span>';
-                    echo '    <span class="dog-tag">' . $dogs[$x][2] . ' yrs</span>';
-                    echo '  </div>';
-                    echo '</div>';
-                }
-                ?>
-            </div>
+                <div class="dog-card">  <div class="dog-card-header">    <div class="dog-icon">🐕</div>    <div class="dog-name">Husky</div>  </div>  <div class="dog-details">    <div class="dog-detail">      <span class="dog-detail-label">Origin:</span>      <span class="dog-detail-value">Siberia</span>    </div>    <div class="dog-detail">      <span class="dog-detail-label">Life Span:</span>      <span class="dog-detail-value">15 years</span>    </div>  </div>  <div class="dog-tags">    <span class="dog-tag">Husky</span>    <span class="dog-tag">Siberia</span>    <span class="dog-tag">15 yrs</span>  </div></div><div class="dog-card">  <div class="dog-card-header">    <div class="dog-icon">🐕</div>    <div class="dog-name">Bulldog</div>  </div>  <div class="dog-details">    <div class="dog-detail">      <span class="dog-detail-label">Origin:</span>      <span class="dog-detail-value">England</span>    </div>    <div class="dog-detail">      <span class="dog-detail-label">Life Span:</span>      <span class="dog-detail-value">10 years</span>    </div>  </div>  <div class="dog-tags">    <span class="dog-tag">Bulldog</span>    <span class="dog-tag">England</span>    <span class="dog-tag">10 yrs</span>  </div></div><div class="dog-card">  <div class="dog-card-header">    <div class="dog-icon">🐕</div>    <div class="dog-name">Chihuahua</div>  </div>  <div class="dog-details">    <div class="dog-detail">      <span class="dog-detail-label">Origin:</span>      <span class="dog-detail-value">Mexico</span>    </div>    <div class="dog-detail">      <span class="dog-detail-label">Life Span:</span>      <span class="dog-detail-value">20 years</span>    </div>  </div>  <div class="dog-tags">    <span class="dog-tag">Chihuahua</span>    <span class="dog-tag">Mexico</span>    <span class="dog-tag">20 yrs</span>  </div></div>            </div>
 
             <!-- Original Text Display -->
             <div class="info-block">
-                <?php    
-                for($x = 0; $x < 3; $x++){
-                    echo '<div class="info-item">';
-                    echo '<span class="info-label">' . $dogs[$x][0] . ':</span>';
-                    echo '<span class="info-value">Origin - ' . $dogs[$x][1] . ', Life Span - ' . $dogs[$x][2] . ' years</span>';
-                    echo '</div>';
-                }
-                    $grades = [
-                        "Matematika" => 5,
-                        "Fizika" => 4,
-                        "Informatika" => 5
-                        "Historia" => 3
-                    ];
-                echo "Matematika: " . $grades["Matematika"] . "<br>";
-echo "Fizika: " . $grades["Fizika"] . "<br>";
-echo "Informatika: " . $grades["Informatika"] . "<br>";
-echo "Historia: " . $grades["Historia"] . "<br>";
-
-                ?>
-            </div>
+                <div class="info-item"><span class="info-label">Husky:</span><span class="info-value">Origin - Siberia, Life Span - 15 years</span></div><div class="info-item"><span class="info-label">Bulldog:</span><span class="info-value">Origin - England, Life Span - 10 years</span></div><div class="info-item"><span class="info-label">Chihuahua:</span><span class="info-value">Origin - Mexico, Life Span - 20 years</span></div>            </div>
         </section>
     </div>
 </body>
