@@ -1,14 +1,26 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$pass = "";
+$servername = "localhost";
+$username   = "root";
+$password   = "";
+$dbname     = "ds";
 
-try {
-    $conn = new PDO("mysql:host=$host", $user, $pass);
-    echo("Connected");
-} catch (Exception $e) {
-    echo("Not connected: " . $e->getMessage());
+$conn = new mysqli($servername, $username, $password);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+
+$sql = "CREATE DATABASE IF NOT EXISTS `$dbname`";
+
+if ($conn->query($sql) !== TRUE) {
+    die("Error creating database: " . $conn->error);
+}
+
+$conn->select_db($dbname);
+
+echo "Connected successfully to database '$dbname'.";
+
+$conn->close();
 
 ?>
