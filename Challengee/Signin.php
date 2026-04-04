@@ -1,5 +1,26 @@
 <?php
-// You can add PHP logic here later (e.g., login handling)
+require_once 'config.php';
+
+$message = '';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    
+    try {
+        $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+        $stmt = $connect->prepare($sql);
+        $stmt->execute([
+            ':username' => $username,
+            ':password' => $hashed_password
+        ]);
+        $message = "<div class='alert alert-success'>User registered successfully!</div>";
+    } catch(PDOException $e) {
+        $message = "<div class='alert alert-danger'>Error: " . $e->getMessage() . "</div>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +59,6 @@
   </style>
 </head>
 <body>
-<?php include 'Header.php'; ?>
 <section class="h-100 gradient-form" style="background-color: #eee;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -51,17 +71,17 @@
               <div class="card-body p-md-5 mx-md-4">
 
                 <div class="text-center">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                       style="width: 185px;" alt="logo">
                   <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
                 </div>
 
+                <?php echo $message; ?>
+
                 <form method="POST" action="">
-                  <p>Please login to your account</p>
+                  <p>Please provide these</p>
 
                   <div class="mb-4">
-                    <input type="email" name="email" class="form-control"
-                           placeholder="Phone number or email address" required>
+                    <input type="text" name="username" class="form-control"
+                           placeholder="username" required>
                     <label class="form-label">Username</label>
                   </div>
 
@@ -71,28 +91,12 @@
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary w-100 mb-3" type="submit">Log in</button>
-                    <a class="text-muted" href="#">Forgot password?</a>
+                    <button class="btn btn-primary w-100 mb-3" type="submit">Sign up</button>
                   </div>
 
-                  <div class="d-flex align-items-center justify-content-center pb-4">
-                    <p class="mb-0 me-2">Don't have an account?</p>
-                    <button type="button" class="btn btn-outline-danger">Create new</button>
-                  </div>
+                  
 
                 </form>
-
-                <?php
-                // Simple example login handler
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                  $email = $_POST['email'];
-                  $password = $_POST['password'];
-
-                  echo "<div class='alert alert-info mt-3'>";
-                  echo "You entered:<br>Email: $email <br>Password: $password";
-                  echo "</div>";
-                }
-                ?>
 
               </div>
             </div>
@@ -114,6 +118,5 @@
     </div>
   </div>
 </section>
-<?php include 'Footer.php'; ?>
 </body>
 </html>
