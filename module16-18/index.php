@@ -96,7 +96,7 @@
                   <label class="form-check-label">I agree to terms</label>
                 </div>
 
-                <button class="btn btn-primary w-100">Register</button>
+                <button type="submit" class="btn btn-primary w-100">Register</button>
               </form>
             </div>
 
